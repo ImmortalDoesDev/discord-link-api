@@ -1,0 +1,26 @@
+{
+  "name": "discord-link-api",
+  "version": "1.0.1",
+  "description": "A module to access Player Links DB",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ImmortalEvil/discord-link-api"
+  },
+  "keywords": [
+    "api",
+    "clash-of-clans",
+    "link-players",
+    "update-players",
+    "search-players",
+    "discord"
+  ],
+  "author": "Immortal Evil#0001",
+  "license": "ISC",
+  "dependencies": {
+    "request-promise": "^4.2.5"
+  }
+}
