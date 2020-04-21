@@ -10,11 +10,13 @@ const discord-link-api = require('discord-link-api');
 # Init
 
 ```js
-const client = new discord-link-api({
+let client = new discord-link-api({
 username: 'YourUsername',
 password: 'YourPassword'
 })
 ```
+You can also define the username and password in .env as `DLA_API_USERNAME` and `DLA_API_PASSWORD`
+
 You can get your own username and password to access the DB by talking to **ReverendMike#6969** in the server: **https://discord.gg/Eaja7gJ**
 
 ---
@@ -22,7 +24,10 @@ You can get your own username and password to access the DB by talking to **Reve
 ## Link Players
 
 ```js
-client.link('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
+client
+.link('#VQJPJY0L', '581442925611712513')
+.then(res => console.log(res))
+.catch(err => console.log(err))
 
 //Response: { message: 'Success', statusCode: 200 }
 ```
@@ -30,7 +35,10 @@ client.link('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).cat
 ## Update Players
 
 ```js
-client.update('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
+client
+.update('#VQJPJY0L', '581442925611712513')
+.then(res => console.log(res))
+.catch(err => console.log(err))
 
 //Response: { message: 'Success', statusCode: 200 }
 ```
@@ -38,9 +46,12 @@ client.update('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).c
 ## Search Player Tags by Discord ID
 
 ```js
-client.search('581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
+client
+.search('581442925611712513')
+.then(res => console.log(res))
+.catch(err => console.log(err))
 
-\\or
+//or
 
 console.log(await client.search('581442925611712513'))
 
@@ -56,6 +67,13 @@ Contact me on [Discord](https://discord.gg/Eaja7gJ)
 
 All errors can be taken with .catch blocks. All the errors are sent as JSON objects with message and statusCode of the error.
 
+```js
+{
+message: 'Error message',
+statusCode: 406
+}
+```
+
 # How to access this API and use this module?
 
-You can get your own username and password by contacting the owner of the API, **ReverendMike#6969**
+You can get your own username and password by contacting the owner of the API, **ReverendMike#6969** and by contacting us in the server: **https://discord.gg/Eaja7gJ**

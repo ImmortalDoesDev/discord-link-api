@@ -3,8 +3,8 @@ class DiscordLinkApi {
 
 
     constructor({username, password} = {}) {
-        this.username = username
-        this.password = password
+        this.username =  username || process.env.DLA_API_USERNAME
+        this.password = password || process.env.DLA_API_PASSWORD
         if(!this.username){
             throw new Error('Please define a username');
         }
