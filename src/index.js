@@ -128,26 +128,42 @@ throw new Failed(response.message, response.statusCode)
               // POST failed...
             });
         if(tag.startsWith('#')){
-            var request = {
-                uri: "https://api.amazingspinach.com/links/" + tag.replace("#", ""),
+          let search = tag.startsWith("#") ? tag.replace("#", "%23").toUpperCase() : "%23"+tag.toUpperCase();
+              var request = {
+                uri: "https://api.amazingspinach.com/links/" + search,
                 headers: {
                   Authorization: "Bearer ".concat(token)
                 },
-                json: true
+                json: true // Automatically parses the JSON string in the response
               };
-              let discord;
-            await rp(request)
-            .then(async function(response) {
-               console.log(response)
-            })
-            .catch(function(err) {
-                discord = {
-                    message: err.message,
-                    statusCode: err.statusCode
-                }
-                return discord;
-            });
-            return discord;
+          let r = false;
+let id;
+              await rp(request)
+                .then(function(response) {
+if(!response.length){
+  r = {
+  message: 'Not Linked to any discord ID',
+  statusCode: 404
+  }
+} else {
+id = response[0].discordId
+}
+})
+.catch(function(err) {
+r = {
+message: err.message,
+statusCode: err.statusCode
+}
+});
+if(r === false){
+return id
+} else {
+  function Failed(message, code) {
+     this.message = message;
+     this.statusCode = code;
+  }
+throw new Failed(r.message, r.statusCode)
+}
         } else {
             var request = {
                 uri: "https://api.amazingspinach.com/links/" + tag,
@@ -163,7 +179,7 @@ let r = false;
                   if(!response.length){
                     r = {
                     message: 'No Player Tags found for the user!',
-                    statusCode: 4040
+                    statusCode: 404
                     }
                   } else {
              for(const data of response){

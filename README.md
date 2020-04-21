@@ -57,7 +57,24 @@ console.log(await client.search('581442925611712513'))
 
 //Response: ['#P8U2J0PV2', '#88QQ99CQQ', '#PYVVYVG8P', '#9GVJ2QRYG', '#YRQPVQQY2', '#2VRVVY0RQ', '#VQJPJY0L']
 ```
-Returns an array of player tags for the discord ID
+Returns an array of player tags for the discord ID. Throws error when none is found
+
+## Get linked discord ID from a player tag
+
+```js
+client
+.search('#VQJPJY0L')
+.then(res => console.log(res))
+.catch(err => console.log(err))
+
+//or
+
+console.log(await client.search('#VQJPJY0L'))
+
+//Response: '581442925611712513'
+```
+Returns a string with the discord ID linked to the player tag. Throws error when none is found.
+
 
 ### Wanna ask something about the API?
 
