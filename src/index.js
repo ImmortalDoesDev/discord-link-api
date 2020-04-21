@@ -99,7 +99,7 @@ return response
      this.message = message;
      this.statusCode = code;
   }
-throw new Failed(r.message, r.statusCode)
+throw new Failed(response.message, response.statusCode)
 }
     }
 
@@ -255,7 +255,7 @@ return response
      this.message = message;
      this.statusCode = code;
   }
-throw new Failed(r.message, r.statusCode)
+throw new Failed(response.message, response.statusCode)
 }
     }
 
