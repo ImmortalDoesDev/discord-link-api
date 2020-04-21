@@ -1,5 +1,5 @@
 var rp = require('request-promise');
-class ClashPlayerApi {
+class DiscordLinkApi {
 
 
     constructor({username, password} = {}) {
@@ -21,7 +21,7 @@ class ClashPlayerApi {
             },
             json: true
           };
-        
+
          rp(options)
             .then(function(parsedBody) {
               token = parsedBody.token;
@@ -49,7 +49,7 @@ class ClashPlayerApi {
             },
             json: true
           };
-        
+
           await rp(options)
             .then(function(parsedBody) {
               token = parsedBody.token;
@@ -111,7 +111,7 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
             },
             json: true
           };
-        
+
           await rp(options)
             .then(function(parsedBody) {
               token = parsedBody.token;
@@ -131,7 +131,7 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
               };
               let discord;
             await rp(request)
-            .then(async function(response) {    
+            .then(async function(response) {
                console.log(response)
             })
             .catch(function(err) {
@@ -189,7 +189,7 @@ return array
             },
             json: true
           };
-        
+
           await rp(options)
             .then(function(parsedBody) {
               token = parsedBody.token;
@@ -238,4 +238,4 @@ return response
     }
 
 }
-module.exports = ClashPlayerApi;
+module.exports = DiscordLinkApi;
