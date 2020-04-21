@@ -22,21 +22,21 @@ You can get your own username and password to access the DB by talking to **Reve
 ## Link Players
 
 ```js
-client.link('#VQJPJY0L', '581442925611712513').then(res => console.log(res))
+client.link('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
 \\Response: { message: 'Success', statusCode: 200 }
 ```
 
 ## Update Players
 
 ```js
-client.update('#VQJPJY0L', '581442925611712513').then(res => console.log(res))
+client.update('#VQJPJY0L', '581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
 \\Response: { message: 'Success', statusCode: 200 }
 ```
 
 ## Search Player Tags by Discord ID
 
 ```js
-client.search('581442925611712513').then(res => console.log(res))
+client.search('581442925611712513').then(res => console.log(res)).catch(err => console.log(err))
 
 \\or
 

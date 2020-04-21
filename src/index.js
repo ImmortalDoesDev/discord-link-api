@@ -95,10 +95,11 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
   if(response.statusCode === 200){
 return response
 } else {
-  var error = new Error(response.message);
-  error.statusCode = response.statusCode
-
-  return myCallback(error);
+  function Failed(message, code) {
+     this.message = message;
+     this.statusCode = code;
+  }
+throw new Failed(r.message, r.statusCode)
 }
     }
 
@@ -179,10 +180,11 @@ statusCode: err.statusCode
 if(r === false){
 return array
 } else {
-  var error = new Error(response.message);
-  error.statusCode = response.statusCode
-
-  return myCallback(error);
+  function Failed(message, code) {
+     this.message = message;
+     this.statusCode = code;
+  }
+throw new Failed(r.message, r.statusCode)
 }
         }
     }
@@ -249,10 +251,11 @@ response = {
 if(response.statusCode === 200){
 return response
 }  else {
-  var error = new Error(response.message);
-  error.statusCode = response.statusCode
-
-  return myCallback(error);
+  function Failed(message, code) {
+     this.message = message;
+     this.statusCode = code;
+  }
+throw new Failed(r.message, r.statusCode)
 }
     }
 
