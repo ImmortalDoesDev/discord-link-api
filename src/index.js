@@ -94,7 +94,12 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
   });
   if(response.statusCode === 200){
 return response
-} else throw new Error(response)
+} else {
+  var error = new Error(response.message);
+  error.statusCode = response.statusCode
+
+  return myCallback(error);
+}
     }
 
     async search(tag){
@@ -173,7 +178,12 @@ statusCode: err.statusCode
               });
 if(r === false){
 return array
-} else throw new Error(r)
+} else {
+  var error = new Error(response.message);
+  error.statusCode = response.statusCode
+
+  return myCallback(error);
+}
         }
     }
     async update(tag, discord){
@@ -238,7 +248,12 @@ response = {
   });
 if(response.statusCode === 200){
 return response
-} else throw new Error(response)
+}  else {
+  var error = new Error(response.message);
+  error.statusCode = response.statusCode
+
+  return myCallback(error);
+}
     }
 
 }
