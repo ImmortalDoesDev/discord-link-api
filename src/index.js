@@ -91,10 +91,10 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
           message: err.message,
           statusCode: err.statusCode
       }
-      return response
-    // POST failed...
   });
-    return response
+  if(response.statusCode === 200){
+return response
+} else throw new Error(response)
     }
 
     async search(tag){
@@ -151,25 +151,29 @@ if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /und
                 json: true
               };
               let array = []
-              let status;
+let r = false;
               await rp(request)
               .then(async function(response) {
                   if(!response.length){
-                      status = false
+                    r = {
+                    message: 'No Player Tags found for the user!',
+                    statusCode: 4040
+                    }
                   } else {
-                      status = true
              for(const data of response){
                  array.push(data.playerTag)
              }
             }
               })
               .catch(function(err) {
-                  throw new Error('Error!\n\n' + err)
-                // POST failed...
+r = {
+message: err.message,
+statusCode: err.statusCode
+}
               });
-if(!status) throw new Error('No Player Tags found for the user!')
-if(!status) return;
+if(r === false){
 return array
+} else throw new Error(r)
         }
     }
     async update(tag, discord){
@@ -231,10 +235,10 @@ response = {
     message: err.message,
     statusCode: err.statusCode
 }
-return response
-    // POST failed...
   });
-    return response
+if(response.statusCode === 200){
+return response
+} else throw new Error(response)
     }
 
 }
