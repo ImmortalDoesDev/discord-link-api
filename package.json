@@ -1,6 +1,6 @@
 {
   "name": "discord-link-api",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A module to access Player Links to Discord IDs DB",
   "main": "src/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "author": "Immortal Evil#0001",
   "license": "ISC",
   "dependencies": {
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+"request": "^2.88.2"
   }
 }
