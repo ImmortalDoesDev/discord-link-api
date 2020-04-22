@@ -4,13 +4,13 @@ An API that will communicate with the DB to link, update and search players by p
 # First Things First!
 
 ```js
-const discord-link-api = require('discord-link-api');
+const discordlinkapi = require('discord-link-api');
 ```
 
 # Init
 
 ```js
-let client = new discord-link-api({
+let client = new discordlinkapi({
 username: 'YourUsername',
 password: 'YourPassword'
 })
