@@ -1,6 +1,6 @@
 {
   "name": "discord-link-api",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A module to access Player Links to Discord IDs DB",
   "main": "src/index.js",
   "scripts": {
