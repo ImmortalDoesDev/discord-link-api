@@ -14,7 +14,7 @@ class DiscordLinkApi {
         let token = "";
         var options = {
             method: "POST",
-            uri: "https://api.amazingspinach.com/login",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/login",
             body: {
               username: this.username, //username mike gave you
               password: this.password //password mike gave you
@@ -42,7 +42,7 @@ class DiscordLinkApi {
         let token = "";
         var options = {
             method: "POST",
-            uri: "https://api.amazingspinach.com/login",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/login",
             body: {
               username: this.username, //username mike gave you
               password: this.password //password mike gave you
@@ -61,7 +61,7 @@ class DiscordLinkApi {
             });
         var optionss = {
             method: "POST",
-            uri: "https://api.amazingspinach.com/links",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/links",
             headers: {
               Authorization: "Bearer ".concat(token)
             },
@@ -110,7 +110,7 @@ throw new Failed(response.message, response.statusCode)
         let token = "";
         var options = {
             method: "POST",
-            uri: "https://api.amazingspinach.com/login",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/login",
             body: {
               username: this.username, //username mike gave you
               password: this.password //password mike gave you
@@ -130,7 +130,7 @@ throw new Failed(response.message, response.statusCode)
         if(tag.startsWith('#')){
           let search = tag.startsWith("#") ? tag.replace("#", "%23").toUpperCase() : "%23"+tag.toUpperCase();
               var request = {
-                uri: "https://api.amazingspinach.com/links/" + search,
+                uri: "https://cocdiscordlink.azurewebsites.net/api/links/" + search,
                 headers: {
                   Authorization: "Bearer ".concat(token)
                 },
@@ -166,7 +166,7 @@ throw new Failed(r.message, r.statusCode)
 }
         } else {
             var request = {
-                uri: "https://api.amazingspinach.com/links/" + tag,
+                uri: "https://cocdiscordlink.azurewebsites.net/api/links/" + tag,
                 headers: {
                   Authorization: "Bearer ".concat(token)
                 },
@@ -214,7 +214,7 @@ throw new Failed(r.message, r.statusCode)
         let token = "";
         var options = {
             method: "POST",
-            uri: "https://api.amazingspinach.com/login",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/login",
             body: {
               username: this.username, //username mike gave you
               password: this.password //password mike gave you
@@ -233,7 +233,7 @@ throw new Failed(r.message, r.statusCode)
             });
         var optionss = {
             method: "PUT",
-            uri: "https://api.amazingspinach.com/links",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/links/",
             headers: {
               Authorization: "Bearer ".concat(token)
             },
