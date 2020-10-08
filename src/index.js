@@ -274,6 +274,69 @@ return response
 throw new Failed(response.message, response.statusCode)
 }
     }
+     async unlink(tag){
+        if(!tag){
+            throw new Error('You didn\'t specify the player tag!')
+        }
+        let token = "";
+        var options = {
+            method: "POST",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/login",
+            body: {
+              username: this.username, //username mike gave you
+              password: this.password //password mike gave you
+            },
+            json: true
+          };
+
+          await rp(options)
+            .then(function(parsedBody) {
+              token = parsedBody.token;
+              // POST succeeded...
+            })
+            .catch(function(err) {
+                throw new Error('Couldn\'t authenticate with the username and password provided!\n\n' + err)
+              // POST failed...
+            });
+        var optionss = {
+            method: "DELETE",
+            uri: "https://cocdiscordlink.azurewebsites.net/api/links/" + tag.toUpperCase().replace('#', ''),
+            headers: {
+              Authorization: "Bearer ".concat(token)
+            },
+            json: true
+          };
+          let response;
+await rp(optionss)
+.then(function(parsedBody) {
+    if(parsedBody === 'undefined' || parsedBody === undefined || parsedBody === /undefined/){
+        response = {
+            message: 'Success',
+            statusCode: 200
+        }
+    } else {
+        response = {
+            message: parsedBody,
+            statusCode: 503
+        }
+    }
+  })
+  .catch(function(err) {
+response = {
+    message: err.message,
+    statusCode: err.statusCode
+}
+  });
+if(response.statusCode === 200){
+return response
+}  else {
+  function Failed(message, code) {
+     this.message = message;
+     this.statusCode = code;
+  }
+throw new Failed(response.message, response.statusCode)
+}
+    }
 
 }
 module.exports = DiscordLinkApi;
